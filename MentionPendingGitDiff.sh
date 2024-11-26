@@ -3,7 +3,7 @@
 # Recursively go through all directories and see if they are git
 
 a=() 
-for d in */; do
+for d in $(find . -type d 2>/dev/null); do
     if [ -d "$d/.git" ]; then
         #echo "Directory $d is a git repo"
         a+=($d)
@@ -11,15 +11,15 @@ for d in */; do
 done
 
 #print all the git repos
-echo "Git repos :" ${a[@]}
+#echo "Git repos :" ${a[@]}
 for d in ${a[@]}; do
-    cd $d
-    if [ -n "$(git status --porcelain)" ] && ! git diff --quiet; then
-        echo "----------------------------"
-        echo "In $d"
-        git diff --name-status
-        echo "Out of $d"
+    pushd $d > /dev/null
+    if [ -n "$(git status --porcelain 2>/dev/null)" ] && ! git diff --quiet 2>/dev/null; then
+        echo "In  Repo :$d"
+        git diff --name-status 2>/dev/null
+        echo "Out of Repo : $d"
         echo "----------------------------"
     fi
-    cd ..
+    popd > /dev/null
 done
+
