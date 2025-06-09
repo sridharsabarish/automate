@@ -9,7 +9,7 @@ checkout_downloads()
 }
 
 
-find_different_extensions_using_awk()
+find_different_extensions_using_awk_and_clean()
 {
 echo "Finding different extensions in Downloads folder"
 out=($(find *.* | awk -F "." '{print $NF}' | sort | uniq)) 
@@ -39,7 +39,7 @@ echo " Moved the extension to the folder $1"
 main()
 {
     checkout_downloads
-    find_different_extensions_using_awk
+    find_different_extensions_using_awk_and_clean
 }
 
 main
