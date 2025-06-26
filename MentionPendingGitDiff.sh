@@ -33,7 +33,7 @@ function check_pending_git_diff() {
                 if [ "$commit_choice" == "y" ]; then
                     read -p "Enter commit message: " commit_msg
                     git add -u
-                    git commit -m "$commit_msg"
+                    git commit -m "$commit_msg" && git push
                 fi
             fi
             cd -
