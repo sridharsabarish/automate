@@ -17,6 +17,7 @@ function find_all_git_repos() {
 }
 
 function check_pending_git_diff() {
+    log_warn "Checking for pending git diff"
     local git_repos=($(find_all_git_repos))
     for d in ${git_repos[@]}; do
         pushd $d > /dev/null
