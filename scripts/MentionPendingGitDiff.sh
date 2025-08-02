@@ -47,4 +47,6 @@ function check_pending_git_diff() {
     done
 }
 
+
+
 check_pending_git_diff
