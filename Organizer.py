@@ -12,7 +12,7 @@ class Organizer:
         except FileNotFoundError:
             #logger.error("deleteDownloads.sh not found. Please check if the script is in the same directory")
     def handle_pending_diff(self):
-        logger.trace("Inside Handle_pending_diff")
+        #logger.trace("Inside Handle_pending_diff")
         sys.stdout.flush()
         try:
             subprocess.call(["./scripts/MentionPendingGitDiff.sh"])
