@@ -5,12 +5,12 @@ import subprocess
 class Organizer:
     
     def handle_delete_older_than_7_days(self):
-        logger.trace("Inside Handle_delete")
+        print("Inside Handle_delete")
         sys.stdout.flush()
         try:
             subprocess.call(["./scripts/deleteDownloads.sh"])
         except FileNotFoundError:
-            logger.error("deleteDownloads.sh not found. Please check if the script is in the same directory")
+            print("deleteDownloads.sh not found. Please check if the script is in the same directory")
     def handle_pending_diff(self):
         logger.trace("Inside Handle_pending_diff")
         sys.stdout.flush()
@@ -18,7 +18,7 @@ class Organizer:
             subprocess.call(["./scripts/MentionPendingGitDiff.sh"])
         except FileNotFoundError:
             print("Error")
-            logger.error("MentionPendingGitDiff.sh not found. Please check if the script is in the same directory")
+            print("MentionPendingGitDiff.sh not found. Please check if the script is in the same directory")
 def main():
     organizer = Organizer()
     organizer.handle_delete_older_than_7_days()
