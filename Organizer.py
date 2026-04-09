@@ -17,6 +17,7 @@ class Organizer:
         try:
             subprocess.call(["./scripts/MentionPendingGitDiff.sh"])
         except FileNotFoundError:
+            print("Error")
             #logger.error("MentionPendingGitDiff.sh not found. Please check if the script is in the same directory")
 def main():
     organizer = Organizer()
